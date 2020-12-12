@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoItem from './TodoItem';
+import propTypes from 'prop-types';
 
 const style =  {
     ul: {
@@ -9,18 +10,24 @@ const style =  {
     }
 };
 
-const ToDo = (props) => {
+const ToDo = ({ todos, onToggle }) => {
     return (<div>
         <ul style={style.ul}>
-            { props.todos.map((element, index) => {
+            { todos.map((element, index) => {
                 return <TodoItem 
                             index={index} 
                             key={element.id} 
                             todo={element} 
+                            onChange={onToggle}
                         />
             }) }
         </ul>
     </div>);
+};
+
+ToDo.propTypes = {
+    todos: propTypes.arrayOf(propTypes.object).isRequired,
+    onToggle: propTypes.func.isRequired
 };
 
 export default ToDo;
