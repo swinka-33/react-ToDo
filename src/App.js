@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import ToDo from './ToDo/TodoList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+
+  const todos = [
+    { id: 1, completed: false, title: 'Check messagers'},
+    { id: 2, completed: false, title: 'Go shopping'},
+    { id: 3, completed: false, title: 'Read some books'},
+    { id: 4, completed: false, title: 'Learn React js'}
+
+  ];
+
+  return ( <div className='wrapper'>
+    <h1>
+      react-todo tutorial 
+    </h1>
+    <ToDo todos={todos} />
+  </div> );
+};
 
 export default App;
